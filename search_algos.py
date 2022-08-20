@@ -51,8 +51,10 @@ class SearchAlgo:
             return self.binary_search_recursive(array, start, mid-1, target)
 
 
-searchAlgo = SearchAlgo()
-
+# ------------------ RUN EXAMPLES --------------
+#
+# searchAlgo = SearchAlgo()
+#
 # res = searchAlgo.linear_search([3, 4, 5, 6, 1, 3, 7], 3)
 # searchAlgo.verify(res)
 #
@@ -61,9 +63,9 @@ searchAlgo = SearchAlgo()
 #
 # res = searchAlgo.binary_search([1, 3, 3, 4, 5, 6, 7], 6)
 # searchAlgo.verify(res)
-
-arr = [1, 3, 3, 4, 5, 6, 7]
-res = searchAlgo.binary_search_recursive(arr, 0, len(arr)-1, 5)
-searchAlgo.verify(res)
+#
+# arr = [1, 3, 3, 4, 5, 6, 7]
+# res = searchAlgo.binary_search_recursive(arr, 0, len(arr)-1, 5)
+# searchAlgo.verify(res)
 
 
