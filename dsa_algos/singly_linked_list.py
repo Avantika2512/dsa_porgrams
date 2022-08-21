@@ -209,10 +209,3 @@ class SinglyLinkedList(LinkedListUtil):
             self.append(data)
 
         return self
-
-
-sll = SinglyLinkedList()
-sll.append(4)
-sll.append(5)
-sll.append(4)
-print(sll)
