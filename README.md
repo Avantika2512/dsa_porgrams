@@ -12,6 +12,11 @@ BELOW TOPICS ARE COVERED ALONG WITH USAGE (Scroll to see)
 - DYNAMIC PROGRAMMING
 - SOME LEETCODE, HACKKERANK QUESTIONS TOO
 
+### Installation
+```bash
+pip install git+https://github.com/Avantika2512/dsa_programs
+```
+
 ### LINKED LIST
 #### [Singly Linked List](/dsa_algos/singly_linked_list.py)
 
