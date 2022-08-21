@@ -1,4 +1,6 @@
-SOME DSA TOPIC COVERED WITH USAGE BELOW 
+## DSA ALGORITHMS 
+
+BELOW TOPICS ARE COVERED ALONG WITH USAGE (Scroll to see) 
 
 - SEARCHING (Linear, Binary)
 - SORTING
@@ -10,14 +12,14 @@ SOME DSA TOPIC COVERED WITH USAGE BELOW
 - DYNAMIC PROGRAMMING
 - SOME LEETCODE, HACKKERANK QUESTIONS TOO
 
-# LINKED LIST
-## [Singly Linked List](/algorithms/singly_linked_list.py)
+### LINKED LIST
+#### [Singly Linked List](/dsa_algos/singly_linked_list.py)
 
 <details>
 <summary>Usage Example</summary>
 
 ```python
-from algorithms.singly_linked_list import SinglyLinkedList
+from dsa_algos.singly_linked_list import SinglyLinkedList
 
 # CREATE EMPTY LIST
 sll = SinglyLinkedList()
@@ -51,13 +53,13 @@ sll.clear()
 </details>
 
 
-## [Doubly Linked List](/algorithms/doubly_linked_list.py)
+#### [Doubly Linked List](/dsa_algos/doubly_linked_list.py)
 
 <details>
 <summary>Usage Example</summary>
 
 ```python
-from algorithms.doubly_linked_list import DoublyLinkedList
+from dsa_algos.doubly_linked_list import DoublyLinkedList
 
 # CREATE EMPTY LIST
 dll = DoublyLinkedList()

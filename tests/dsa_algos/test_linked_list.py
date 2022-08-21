@@ -1,7 +1,7 @@
 from unittest import TestCase
-from algorithms.utils.linked_list import Node
-from algorithms.singly_linked_list import SinglyLinkedList
-from algorithms.doubly_linked_list import DoublyLinkedList
+from dsa_algos.utils.linked_list import Node
+from dsa_algos.singly_linked_list import SinglyLinkedList
+from dsa_algos.doubly_linked_list import DoublyLinkedList
 
 
 class LinkedListTest(TestCase):

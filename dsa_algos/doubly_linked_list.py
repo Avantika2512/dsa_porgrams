@@ -1,15 +1,16 @@
-from algorithms.utils.linked_list import LinkedListUtil, Node
+from dsa_algos.utils.linked_list import LinkedListUtil, Node
 
 
-class SinglyNode(Node):
+class DoublyNode(Node):
     def __init__(self, data):
-        super(SinglyNode, self).__init__(data)
+        super(DoublyNode, self).__init__(data)
+        self.prev = None
 
 
-class SinglyLinkedList(LinkedListUtil):
+class DoublyLinkedList(LinkedListUtil):
     def __init__(self):
         """Initialise an empty linked list i.e. self.head = None"""
-        super(SinglyLinkedList, self).__init__()
+        super(DoublyLinkedList, self).__init__()
 
     # INSERTION OPERATIONS
     def append(self, data):
@@ -18,7 +19,7 @@ class SinglyLinkedList(LinkedListUtil):
         :param data: any object - int, string, list etc.
         :return:
         """
-        node = SinglyNode(data)
+        node = DoublyNode(data)
 
         # if SLL is empty add the first node and return
         if self.is_empty():
@@ -31,6 +32,7 @@ class SinglyLinkedList(LinkedListUtil):
             current = current.next
 
         current.next = node
+        node.prev = current  # one extra statement for DLL. Rest is same as SLL
 
     def prepend(self, data):
         """
@@ -38,7 +40,7 @@ class SinglyLinkedList(LinkedListUtil):
         :param data: any object - int, string, list etc.
         :return:
         """
-        node = SinglyNode(data)
+        node = DoublyNode(data)
 
         # if SLL is empty add the first node and return
         if self.is_empty():
@@ -46,6 +48,7 @@ class SinglyLinkedList(LinkedListUtil):
             return
 
         node.next = self.head
+        self.head.prev = node  # one extra statement for DLL. Rest is same as SLL
         self.head = node
 
     def insert(self, data, at_index):
@@ -74,21 +77,25 @@ class SinglyLinkedList(LinkedListUtil):
                 index_traversed += 1
                 current = current.next
 
-            node = SinglyNode(data)
+            node = DoublyNode(data)
             node.next = current.next
             current.next = node
+
+            # 2 extra statements for DLL. Rest is same as SLL
+            node.prev = current
+            node.next.prev = node
 
     # DELETION OPERATIONS
     def pop(self):
         """
         Removes the last node of the linked list and returns it
-        :return: SinglyNode
+        :return: DoublyNode
         """
         if self.is_empty():
             return None
 
         current = self.head
-        next_node = current.next
+        next_node = self.head.next
 
         while current.next and next_node and next_node.next:
             current = next_node
@@ -96,6 +103,7 @@ class SinglyLinkedList(LinkedListUtil):
         current.next = None
 
         if next_node:
+            next_node.prev = None  # 1 extra statement for DLL. Rest is same as SLL
             return next_node
         else:
             return self.pop_first()
@@ -103,19 +111,22 @@ class SinglyLinkedList(LinkedListUtil):
     def pop_first(self):
         """
         Removes the first node of the linked list and returns it
-        :return: SinglyNode
+        :return: DoublyNode
         """
         if self.is_empty():
             return None
         current = self.head
         self.head = current.next
+
+        if self.head:
+            self.head.prev = None  # 1 extra statement for DLL. Rest is same as SLL
         current.next = None
         return current
 
     def remove(self, from_index):
         """
         Removes the node from the specified index of the linked list and returns it
-        :return: SinglyNode
+        :return: DoublyNode
         """
 
         if self.is_empty():
@@ -142,15 +153,19 @@ class SinglyLinkedList(LinkedListUtil):
 
             removed = current.next
             current.next = removed.next
-            removed.next = None
+
+            # 3 extra statements for DLL. Rest is same as SLL
+            current.next.prev = current
+            removed.prev = None
+            removed.Next = None
             return removed
 
     # SEARCH OPERATIONS
     def search(self, target):
         """
-        Returns the target node, and it's position if found. Uses binary search - O(n log(n))
+        Returns the first target node, and it's position if found. Uses binary search - O(n log(n))
         :param target: any object string, list, int etc.
-        :return: SinglyNode, int
+        :return: DoublyNode, int
         """
         def mid_node(start, end, pos):
             # for every 2 node moves of the fast pointer
@@ -180,7 +195,7 @@ class SinglyLinkedList(LinkedListUtil):
 
             if mid.data == target:
                 return mid, pos
-            elif mid.data < target:
+            elif str(mid.data) < str(target):
                 pos += 1
                 start = mid.next
             else:
@@ -190,9 +205,9 @@ class SinglyLinkedList(LinkedListUtil):
     # SORTING OPERATIONS
     def sort(self, asc=True):
         """
-        Sorts and returns a new linked list object. Not Very efficient way to sort though. Need to make better.
+        Sorts and returns a new linked list object. Not Very efficient way to sort though. Need to make better
         :param asc: bool
-        :return: SinglyLinkedList
+        :return: DoublyLinkedList
         """
         nodes_data = []
         current = self.head
@@ -209,10 +224,3 @@ class SinglyLinkedList(LinkedListUtil):
             self.append(data)
 
         return self
-
-
-sll = SinglyLinkedList()
-sll.append(4)
-sll.append(5)
-sll.append(4)
-print(sll)
