@@ -1,3 +1,6 @@
+from dsa_algos.utils.util import validate_array_instance
+
+
 class SearchAlgo:
     @staticmethod
     def verify(index):
@@ -9,22 +12,40 @@ class SearchAlgo:
     @staticmethod
     def linear_search(array, target):
         """ Return the first index of target element in the array using sequential search"""
-        for i in range(0, len(array)):
-            if array[i] == target:
-                return i
+        validate_array_instance(array)
+        res = list(filter(lambda x:
+                           x is not None,
+                           list(map(lambda tup:
+                                    tup[0] if tup[1]==target else None,
+                                    enumerate(array)
+                                    )
+                                )
+                           )
+                    )
+        return res[0] if res else None
 
     @staticmethod
     def linear_search_all_elements(array, target):
         """ Return the all indexes of target element in the array """
 
-        for i in range(0, len(array)):
-            if array[i] == target:
-                yield i
+        validate_array_instance(array)
+        res = list(filter(lambda x:
+                           x is not None,
+                           list(map(lambda tup:
+                                    tup[0] if tup[1]==target else None,
+                                    enumerate(array)
+                                    )
+                                )
+                           )
+                    )
+
+        return res if res else None
 
     @staticmethod
     def binary_search(array, target):
         """ Return the first index of target element in the array using binary search """
 
+        validate_array_instance(array)
         array = sorted(array)
         start, last = 0, len(array)-1
 
@@ -41,6 +62,7 @@ class SearchAlgo:
     @staticmethod
     def binary_search_recursive(array, start, last, target):
         """ Return the first index of target element in the array using binary search """
+        validate_array_instance(array)
 
         if len(array) == 0:
             return None
@@ -54,19 +76,3 @@ class SearchAlgo:
 
         else:
             return SearchAlgo.binary_search_recursive(array, start, mid-1, target)
-
-
-# # ------------------ RUN EXAMPLES --------------
-#
-# res = SearchAlgo.linear_search([3, 4, 5, 6, 1, 3, 7], 3)
-# SearchAlgo.verify(res)
-#
-# res = list(SearchAlgo.linear_search_all_elements([3, 4, 5, 6, 1, 3, 7], 3))
-# SearchAlgo.verify(res)
-#
-# res = SearchAlgo.binary_search([1, 3, 3, 4, 5, 6, 7], 6)
-# SearchAlgo.verify(res)
-#
-# arr = [1, 3, 3, 4, 5, 6, 7]
-# res = SearchAlgo.binary_search_recursive(arr, 0, len(arr)-1, 5)
-# SearchAlgo.verify(res)

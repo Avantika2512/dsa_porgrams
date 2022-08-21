@@ -1,3 +1,9 @@
+def validate_array_instance(arr):
+    if not isinstance(arr, list):
+        raise Exception(f'Input is not a list: Your Input: {array} |  Expected Input: list like [1,2,3]')
+    return True
+
+
 class Node:
     def __init__(self, data):
         self.data = data

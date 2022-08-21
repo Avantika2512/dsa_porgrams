@@ -1,9 +1,10 @@
 from dsa_algos.search_array import SearchAlgo
+from dsa_algos.sort_array import SortAlgo
 from unittest import TestCase
+
 
 class SearchAlgoTest(TestCase):
     def setUp(self):
-        print('Start of Search Algo Tests')
         self.empty_array = []
         self.single_elem_array = [4]
         self.repeated_elem_array = [1,2,3,4,5,6,4]
@@ -33,7 +34,25 @@ class SearchAlgoTest(TestCase):
         with self.assertRaises(Exception):
             SortAlgo.merge_sort(num)
 
-    def tearDown(self) -> None:
-        del self
-        print('End of Search Algo Tests')
 
+class SortAlgoTest(TestCase):
+    def test_merge_sort(self):
+        print('Testing Merge sort')
+        # Testing empty list
+        array = []
+        self.assertEqual(SortAlgo.merge_sort(array), [])
+
+        # Testing non empty list
+        array = [0, 3, -1, -4, 9, 7, 9, 10]
+        sorted_array = sorted(array)
+        self.assertEqual(SortAlgo.merge_sort(array), sorted_array)
+
+        # Testing non empty list
+        array = ['Z', 'Y', 'X', 'W', 'w', 'x', 'y', 'z']
+        sorted_array = sorted(array)
+        self.assertEqual(SortAlgo.merge_sort(array), sorted_array)
+
+        # testing exception
+        num = 1
+        with self.assertRaises(Exception):
+            SortAlgo.merge_sort(num)
