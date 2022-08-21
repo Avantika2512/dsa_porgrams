@@ -1,5 +1,5 @@
-from dsa_algos.search_array import SearchAlgo
-from dsa_algos.sort_array import SortAlgo
+from dsa_algos.search import SearchAlgo
+from dsa_algos.sort import SortAlgo
 from unittest import TestCase
 
 
