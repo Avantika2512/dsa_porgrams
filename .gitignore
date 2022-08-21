@@ -1,3 +1,6 @@
 # created by virtualenv automatically
 venv/
 .idea/
+algorithms/*/__pycache__/*
+algorithms/__pycache__/*
+tests/*/__pycache__/*
