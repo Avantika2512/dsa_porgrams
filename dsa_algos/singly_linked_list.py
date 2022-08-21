@@ -1,4 +1,4 @@
-from dsa_algos.utils.linked_list import LinkedListUtil, Node
+from dsa_algos.utils.util import LinkedListUtil, Node
 
 
 class SinglyNode(Node):

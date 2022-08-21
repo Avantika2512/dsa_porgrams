@@ -1,5 +1,5 @@
 from unittest import TestCase
-from dsa_algos.utils.linked_list import Node
+from dsa_algos.utils.util import Node
 from dsa_algos.singly_linked_list import SinglyLinkedList
 from dsa_algos.doubly_linked_list import DoublyLinkedList
 
