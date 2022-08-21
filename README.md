@@ -2,9 +2,9 @@
 
 BELOW TOPICS ARE COVERED ALONG WITH USAGE (Scroll to see) 
 
-- SEARCHING (Linear, Binary)
-- SORTING
-- LINKED LIST (Singly, Doubly)
+- SEARCHING ([Linear, Binary Search](/dsa_algos/search.py))
+- SORTING ([Merge Sort](/dsa_algos/sort.py))
+- LINKED LIST ([Singly Linked List](/dsa_algos/singly_linked_list.py), [Doubly Linked List](/dsa_algos/doubly_linked_list.py))
 - STACK
 - QUEUE
 - TREES
@@ -17,11 +17,36 @@ BELOW TOPICS ARE COVERED ALONG WITH USAGE (Scroll to see)
 pip install git+https://github.com/Avantika2512/dsa_programs
 ```
 
-### LINKED LIST
-#### [Singly Linked List](/dsa_algos/singly_linked_list.py)
+### **SEARCHING**
 
 <details>
-<summary>Usage Example</summary>
+<summary>Example</summary>
+
+```python
+from dsa_algos.search import SearchAlgo
+
+print(SearchAlgo.linear_search([1,2,3,4,5], 4))
+print(SearchAlgo.linear_search_all_elements([1,2,3,4,5,5,5,6,7], 4))
+print(SearchAlgo.binary_search(['a', 'A', 'b', 'B'], 'A'))
+```
+</details>
+
+### **SORTING**
+
+<details>
+<summary>Example</summary>
+
+```python
+from dsa_algos.sort import SortAlgo
+print(SearchAlgo.merge_sort([1,2,3,4,5], 4))
+```
+</details>
+
+### **LINKED LIST**
+#### **Singly Linked List**
+
+<details>
+<summary>Example</summary>
 
 ```python
 from dsa_algos.singly_linked_list import SinglyLinkedList
@@ -58,10 +83,10 @@ sll.clear()
 </details>
 
 
-#### [Doubly Linked List](/dsa_algos/doubly_linked_list.py)
+#### **Doubly Linked List**
 
 <details>
-<summary>Usage Example</summary>
+<summary>Example</summary>
 
 ```python
 from dsa_algos.doubly_linked_list import DoublyLinkedList
