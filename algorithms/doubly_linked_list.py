@@ -224,33 +224,3 @@ class DoublyLinkedList(LinkedListUtil):
             self.append(data)
 
         return self
-
-
-# CREATE EMPTY LIST
-dll = DoublyLinkedList()
-
-# INSERT
-dll.append('A')
-dll.append('B')
-dll.prepend('C')
-dll.prepend('D')
-dll.insert(data='E', at_index=1)
-dll.insert(data='F', at_index=-1)
-
-# REMOVE
-dll.pop()
-dll.pop_first()
-dll.remove(from_index=2)
-
-# SEARCH
-dll.search('A')
-dll.search('Z')
-
-# SORT
-dll.sort()
-
-# PRINT
-print(dll)
-
-# CLEAR
-dll.clear()
